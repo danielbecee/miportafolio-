@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Daniel Becerra</title>
+    <meta name="description" content="Explora los proyectos desarrollados por Daniel Becerra, desarrollador frontend especializado en HTML5, CSS3, JavaScript y LESS.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS - Animate On Scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/visual-effects.css">
+</head>
+<body class="site-page projects-page">
+    <!-- Canvas para efectos de partículas -->
+    <canvas id="particle-canvas"></canvas>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Daniel Becerra</a>
+            
+            <div class="hamburger" style="order: 2;">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Sobre mí</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link active">Proyectos</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+                    <li class="nav-item">
+                        <button id="themeToggle" class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Projects Section -->
+        <section class="projects-section">
+            <div class="container">
+                <h1 data-aos="fade-up">Mis Proyectos</h1>
+                <p data-aos="fade-up" data-aos-delay="100">Aquí puedes encontrar algunos de los proyectos en los que he trabajado. Cada proyecto refleja mi pasión por el desarrollo web y mi compromiso con la creación de interfaces modernas y accesibles.</p>
+                
+                <!-- Filter -->
+                <div class="project-filter" data-aos="fade-up" data-aos-delay="150">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
+                    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                    <button class="filter-btn" data-filter="php">PHP</button>
+                </div>
+                
+                <!-- Projects Grid -->
+                <div class="projects-grid-full" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Project 1 -->
+                    <div class="project-card" data-category="html-css javascript">
+
+                        <div class="project-content">
+                            <h3>Portafolio Personal</h3>
+                            <p>Diseño y desarrollo de mi sitio web personal, mostrando mis habilidades y proyectos. Implementado con un diseño responsivo, moderno y accesible.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn" style="margin-top: 1rem;">Ver demo</a>
+                                <a href="#" class="btn btn-secondary" style="margin-top: 1rem;"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card" data-category="html-css">
+
+                        <div class="project-content">
+                            <h3>Landing Page</h3>
+                            <p>Landing page para un producto ficticio, con diseño moderno y llamadas a la acción efectivas. Enfoque en optimización para conversiones y experiencia de usuario.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">LESS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn" style="margin-top: 1rem;">Ver demo</a>
+                                <a href="#" class="btn btn-secondary" style="margin-top: 1rem;"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card" data-category="javascript">
+
+                        <div class="project-content">
+                            <h3>App de Tareas</h3>
+                            <p>Aplicación para gestionar tareas diarias con almacenamiento local y funcionalidades de filtrado. Incluye funciones de arrastrar y soltar, categorías y fechas límite.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn" style="margin-top: 1rem;">Ver demo</a>
+                                <a href="#" class="btn btn-secondary" style="margin-top: 1rem;"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card" data-category="html-css javascript">
+
+                        <div class="project-content">
+                            <h3>Sitio web de Restaurante</h3>
+                            <p>Sitio web completo para un restaurante ficticio, con menú interactivo, galería de imágenes y formulario de reservas funcional.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn" style="margin-top: 1rem;">Ver demo</a>
+                                <a href="#" class="btn btn-secondary" style="margin-top: 1rem;"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card" data-category="php">
+
+                        <div class="project-content">
+                            <h3>Blog Personal</h3>
+                            <p>Sistema de blog simple desarrollado con PHP, con funcionalidades CRUD para artículos y un panel de administración básico.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">PHP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn" style="margin-top: 1rem;">Ver demo</a>
+                                <a href="#" class="btn btn-secondary" style="margin-top: 1rem;"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card" data-category="javascript">
+                        <img src="assets/images/project6.jpg" alt="Calculadora" class="project-img">
+                        <div class="project-content">
+                            <h3>Calculadora</h3>
+                            <p>Calculadora interactiva con funcionalidades básicas y avanzadas, implementada con JavaScript y con un diseño minimalista.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn" style="margin-top: 1rem;">Ver demo</a>
+                                <a href="#" class="btn btn-secondary" style="margin-top: 1rem;"><i class="fab fa-github"></i> Código</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <p>Daniel Becerra Vidaurre | Desarrollador Frontend</p>
+                <p>Email: dabe6612@gmail.com | Teléfono: +34 632 179 121</p>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/daniel-bevi" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:dabe6612@gmail.com" class="social-link"><i class="far fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 Todos los derechos reservados</p>
+        </div>
+    </footer>
+    
+    <!-- Additional styles for this page -->
+    <style>
+        .projects-section {
+            padding-top: 2rem;
+        }
+        
+        .project-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            border-color: var(--primary-color);
+        }
+        
+        .projects-grid-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .project-card.hide {
+            display: none;
+        }
+    </style>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true
+        });
+        
+        // Project filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(filterBtn => {
+                        filterBtn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
+                            card.classList.remove('hide');
+                        } else {
+                            card.classList.add('hide');
+                        }
+                    });
+                });
+            });
+            
+            // Cambiar el estilo del header al hacer scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

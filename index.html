@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Becerra | Desarrollador Frontend</title>
+    <meta name="description" content="Portafolio de Daniel Becerra Vidaurre, desarrollador frontend especializado en HTML5, CSS3, JavaScript y LESS.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS - Animate On Scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        /* Estilos específicos para la home con efectos visuales */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        
+        /* Header transparente */
+        .home-page header {
+            background: transparent;
+            box-shadow: none;
+            transition: all 0.4s ease;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .home-page header.scrolled {
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dark-mode.home-page header.scrolled {
+            background-color: var(--dark-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Ajustar el contenido principal para header fijo */
+        .home-page main {
+            padding-top: 80px;
+        }
+        
+        /* Efecto de gradiente flotante en el hero
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: linear-gradient(45deg, rgba(0,102,255,0.1), rgba(0,204,153,0.1), rgba(0,51,204,0.1));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -1;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            filter: blur(20px);
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        } */
+        
+        /* Estilo para tarjetas de proyectos en la página principal */
+        .home-page .project-card {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+        
+        .home-page .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .home-page .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .home-page .project-img {
+            transition: transform 0.8s ease;
+        }
+    </style>
+</head>
+<body class="home-page">
+    <!-- Canvas para efectos de partículas -->
+    <canvas id="particle-canvas"></canvas>
+    
+    <!-- Header -->    
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Daniel Becerra</a>
+            
+            <div class="hamburger" style="order: 2;">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">Sobre mí</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Proyectos</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
+                    <li class="nav-item">
+                        <button id="themeToggle" class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+
+                    <h1>Daniel Becerra Vidaurre</h1>
+                    <h2>Desarrollador Frontend</h2>
+                    <p>Soy un desarrollador frontend junior apasionado por crear interfaces web modernas, accesibles y responsivas. Me especializo en HTML5, CSS3, JavaScript y LESS. Tengo experiencia colaborando en equipos para desarrollar funcionalidades orientadas al usuario y mejorar la experiencia del cliente. Actualmente me estoy expandiendo hacia tecnologías backend como PHP.</p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn">Contactar</a>
+                        <a href="assets/cv-daniel-becerra.pdf" class="btn btn-secondary" download>Descargar CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 data-aos="fade-up">Conocimientos Técnicos</h2>
+                <div class="skills-container" data-aos="fade-up" data-aos-delay="100">
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+                    <span class="skill-tag"><i class="fab fa-less"></i> LESS</span>
+                    <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+                    <span class="skill-tag"><i class="fas fa-code"></i> VS Code</span>
+                    <span class="skill-tag"><i class="fas fa-laptop-code"></i> Diseño responsivo</span>
+                    <span class="skill-tag"><i class="fas fa-universal-access"></i> Accesibilidad</span>
+                    <span class="skill-tag"><i class="fas fa-check-circle"></i> Buenas prácticas</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="container">
+                <h2 data-aos="fade-up">Experiencia</h2>
+                <div class="timeline" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Timtul – Desarrollador Frontend</h3>
+                            <p class="timeline-date">Febrero 2025 – Junio 2025</p>
+                            <ul>
+                                <li>Desarrollo de interfaces web modernas con HTML5, CSS3 y JavaScript.</li>
+                                <li>Estilado avanzado con LESS.</li>
+                                <li>Aplicación de buenas prácticas de diseño responsivo y accesibilidad web.</li>
+                                <li>Trabajo en equipo para implementar funcionalidades del lado del usuario.</li>
+                                <li>Atención al cliente y corrección de errores en páginas web.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Projects Section -->
+        <section id="featured-projects">
+            <div class="container">
+                <h2 data-aos="fade-up">Proyectos Destacados</h2>
+                <div class="projects-grid" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+
+                        <div class="project-content">
+                            <h3>Portafolio Personal</h3>
+                            <p>Diseño y desarrollo de mi sitio web personal, mostrando mis habilidades y proyectos.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Ver proyecto</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+
+                        <div class="project-content">
+                            <h3>Landing Page</h3>
+                            <p>Landing page para un producto ficticio, con diseño moderno y llamadas a la acción efectivas.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">LESS</span>
+                            </div>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Ver proyecto</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+
+                        <div class="project-content">
+                            <h3>App de Tareas</h3>
+                            <p>Aplicación para gestionar tareas diarias con almacenamiento local y funcionalidades de filtrado.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" style="text-align: center; margin-top: 2rem;">
+                    <a href="projects.html" class="btn">Ver todos los proyectos</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <p>Daniel Becerra Vidaurre | Desarrollador Frontend</p>
+                <p>Email: dabe6612@gmail.com | Teléfono: +34 632 179 121</p>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/daniel-bevi" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:dabe6612@gmail.com" class="social-link"><i class="far fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 Todos los derechos reservados</p>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/particles.js"></script>
+    
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true
+        });
+        
+        // Cambiar el estilo del header al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Efecto de hover para elementos interactivos
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
