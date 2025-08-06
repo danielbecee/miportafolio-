@@ -19,90 +19,13 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    
-    <style>
-        /* Estilos específicos para la home con efectos visuales */
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            opacity: 0.8;
-        }
-        
-        /* Header transparente */
-        .home-page header {
-            background: transparent;
-            box-shadow: none;
-            transition: all 0.4s ease;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .home-page header.scrolled {
-            background-color: var(--bg-color);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .dark-mode.home-page header.scrolled {
-            background-color: var(--dark-color);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        /* Ajustar el contenido principal para header fijo */
-        .home-page main {
-            padding-top: 80px;
-        }
-        
-        /* Efecto de gradiente flotante en el hero
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            right: -50px;
-            bottom: -50px;
-            background: linear-gradient(45deg, rgba(0,102,255,0.1), rgba(0,204,153,0.1), rgba(0,51,204,0.1));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            z-index: -1;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            filter: blur(20px);
-        }
-        
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        } */
-        
-        /* Estilo para tarjetas de proyectos en la página principal */
-        .home-page .project-card {
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-        }
-        
-        .home-page .project-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .home-page .project-card:hover .project-img {
-            transform: scale(1.05);
-        }
-        
-        .home-page .project-img {
-            transition: transform 0.8s ease;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/visual-effects.css">
 </head>
 <body class="home-page">
+    
     <!-- Canvas para efectos de partículas -->
-    <canvas id="particle-canvas"></canvas>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
     
     <!-- Header -->    
     <header>
@@ -132,12 +55,11 @@
     </header>
     
     <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
+    <main id="main-content">
+        <!-- Hero Section - Pantalla Completa -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content" data-aos="fade-up">
-
                     <h1>Daniel Becerra Vidaurre</h1>
                     <h2>Desarrollador Frontend</h2>
                     <p>Soy un desarrollador frontend junior apasionado por crear interfaces web modernas, accesibles y responsivas. Me especializo en HTML5, CSS3, JavaScript y LESS. Tengo experiencia colaborando en equipos para desarrollar funcionalidades orientadas al usuario y mejorar la experiencia del cliente. Actualmente me estoy expandiendo hacia tecnologías backend como PHP.</p>
@@ -158,12 +80,10 @@
                     <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
                     <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
                     <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+                    <span class="skill-tag"><i class="fab fa-laravel"></i> Laravel</span>
+                    <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
                     <span class="skill-tag"><i class="fab fa-less"></i> LESS</span>
                     <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
-                    <span class="skill-tag"><i class="fas fa-code"></i> VS Code</span>
-                    <span class="skill-tag"><i class="fas fa-laptop-code"></i> Diseño responsivo</span>
-                    <span class="skill-tag"><i class="fas fa-universal-access"></i> Accesibilidad</span>
-                    <span class="skill-tag"><i class="fas fa-check-circle"></i> Buenas prácticas</span>
                 </div>
             </div>
         </section>
@@ -262,34 +182,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/particles.js"></script>
-    
-    <script>
-        // Inicializar AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease',
-            once: true
-        });
-        
-        // Cambiar el estilo del header al hacer scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Efecto de hover para elementos interactivos
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px)';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
+    <script src="assets/js/home.js"></script>
 </body>
 </html>

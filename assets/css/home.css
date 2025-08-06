@@ -1,0 +1,147 @@
+/* 
+ * Daniel Becerra Vidaurre - Portfolio
+ * Home Page Specific Styles
+ */
+
+/* Estilos específicos para la home con efectos visuales */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+/* Header transparente */
+.home-page header {
+    background: transparent;
+    box-shadow: none;
+    transition: all 0.4s ease;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.home-page header.scrolled {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dark-mode.home-page header.scrolled {
+    background-color: var(--dark-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Ajustar el contenido principal para header fijo */
+.home-page main {
+    padding-top: 0; /* Cambiado para que la sección hero ocupe toda la pantalla */
+}
+
+/* Estilo hero a pantalla completa */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: scrollIndication 2s infinite;
+    opacity: 0.7;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 8px 0 8px;
+    border-style: solid;
+    border-color: var(--primary-color) transparent transparent transparent;
+    animation: fadeInOut 2s infinite;
+    z-index: 2;
+}
+
+@keyframes scrollIndication {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0.7;
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Estilo para tarjetas de proyectos en la página principal */
+.home-page .project-card {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.home-page .project-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.home-page .project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
+.home-page .project-img {
+    transition: transform 0.8s ease;
+}
+
+/* Modificaciones para hacer la sección hero a pantalla completa */
+#skills, #experience, #featured-projects {
+    position: relative;
+    z-index: 2;
+    /* background-color: var(--bg-color); */
+}
+
+.dark-mode #skills, 
+.dark-mode #experience, 
+.dark-mode #featured-projects {
+    background-color: var(--dark-color);
+}
+
+/* Estilos responsive para la sección hero a pantalla completa */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+    }
+    
+    .hero-content {
+        padding: 20px;
+    }
+}
