@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const skills = [
+  { name: 'PHP', icon: '🐘' },
+  { name: 'Laravel', icon: '🔺' },
+  { name: 'MySQL', icon: '🗄️' },
+  { name: 'Git', icon: '📦' },
+  { name: 'APIs REST', icon: '�' },
+  { name: 'MVC', icon: '�️' },
+  { name: 'CRUD', icon: '⚙️' },
+  { name: 'Postman', icon: '�' },
+];
+
+const experience = [
+  {
+    company: 'Arreglos Azucena',
+    role: 'Desarrollador Web',
+    period: 'Enero 2025 – Febrero 2026',
+    description: 'Desarrollo backend con PHP, implementación de funcionalidades CRUD, gestión de base de datos MySQL, integración frontend con HTML/CSS/JS, diseño responsive y despliegue en producción.',
+  },
+  {
+    company: 'Timtul',
+    role: 'Desarrollador Frontend',
+    period: 'Febrero 2025 – Junio 2025',
+    description: 'Desarrollo de interfaces web modernas con HTML5, CSS3 y JavaScript. Aplicación de buenas prácticas de diseño responsivo y accesibilidad. Estilado con LESS CSS.',
+  },
+];
+
+const featuredProjects = [
+  {
+    title: 'Arreglos Azucena',
+    description: 'Sitio web profesional en producción. Desarrollo backend con PHP y MySQL.',
+    tags: ['PHP', 'MySQL', 'JavaScript'],
+    link: 'https://arreglosazucena.com/',
+  },
+  {
+    title: 'Sitio web de Restaurante',
+    description: 'Sitio web completo con menú interactivo y formulario de reservas.',
+    tags: ['HTML5', 'CSS3', 'JavaScript'],
+    github: 'https://github.com/danielbecee/restauranteV2',
+  },
+];
+---
+
+<Layout title="Inicio">
+  <Header />
+  
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+      <!-- Background gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-900/20"></div>
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      
+      <div class="relative z-10 max-w-4xl mx-auto text-center">
+        <p class="text-cyan-400 font-medium mb-4 animate-fade-in">Hola, soy</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+          Daniel Becerra
+        </h1>
+        <h2 class="text-2xl md:text-3xl text-slate-400 mb-8" id="typing-text">
+          <span class="gradient-text font-semibold">Desarrollador Backend</span>
+        </h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Desarrollador backend junior con experiencia en proyectos reales. 
+          Trabajo con <span class="text-white font-medium">PHP, Laravel y MySQL</span> en el desarrollo de aplicaciones web, APIs y funcionalidades CRUD.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-primary px-8 py-3 rounded-lg text-white font-medium">
+            Contactar
+          </a>
+          <a href="/assets/DANI-CV-PRO.pdf" download class="px-8 py-3 rounded-lg border border-slate-600 text-slate-300 font-medium hover:border-cyan-400 hover:text-cyan-400 transition-all">
+            Descargar CV
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">
+          <span class="gradient-text">Conocimientos Técnicos</span>
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {skills.map((skill) => (
+            <div class="glass rounded-xl p-6 text-center card-hover">
+              <span class="text-3xl mb-3 block">{skill.icon}</span>
+              <span class="text-slate-300 font-medium">{skill.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-20 px-6 bg-slate-800/30">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">
+          <span class="gradient-text">Experiencia</span>
+        </h2>
+        <div class="max-w-3xl mx-auto">
+          {experience.map((exp) => (
+            <div class="glass rounded-xl p-8 relative">
+              <div class="absolute left-8 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full"></div>
+              <div class="pl-8">
+                <span class="text-cyan-400 text-sm font-medium">{exp.period}</span>
+                <h3 class="text-xl font-bold text-white mt-2">{exp.role}</h3>
+                <p class="text-slate-400 mt-1">{exp.company}</p>
+                <p class="text-slate-300 mt-4 leading-relaxed">{exp.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="py-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-12">
+          <h2 class="text-3xl font-bold">
+            <span class="gradient-text">Proyectos Destacados</span>
+          </h2>
+          <a href="/projects" class="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
+            Ver todos →
+          </a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          {featuredProjects.map((project) => (
+            <article class="glass rounded-xl overflow-hidden card-hover group">
+              <div class="h-48 bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
+                <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p class="text-slate-400 mb-4">{project.description}</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <span class="px-3 py-1 bg-slate-700 text-slate-300 text-sm rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div class="flex gap-4">
+                  {project.link && (
+                    <a 
+                      href={project.link} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                    >
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                      Ver web
+                    </a>
+                  )}
+                  {project.github && (
+                    <a 
+                      href={project.github} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                    >
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                      </svg>
+                      Código
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto text-center glass rounded-2xl p-12">
+        <h2 class="text-3xl font-bold text-white mb-4">¿Tienes un proyecto en mente?</h2>
+        <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+          Estoy disponible para nuevos proyectos y oportunidades. ¡Hablemos!
+        </p>
+        <a href="/contact" class="btn-primary px-8 py-3 rounded-lg text-white font-medium inline-block">
+          Contactar
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const roles = ['Desarrollador Backend', 'PHP & Laravel', 'APIs RESTful', 'Bases de Datos SQL'];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingElement = document.querySelector('#typing-text span');
+  
+  function typeEffect() {
+    const currentRole = roles[roleIndex];
+    
+    if (isDeleting) {
+      charIndex--;
+    } else {
+      charIndex++;
+    }
+    
+    if (typingElement) {
+      typingElement.textContent = currentRole.substring(0, charIndex);
+    }
+    
+    let typeSpeed = isDeleting ? 50 : 100;
+    
+    if (!isDeleting && charIndex === currentRole.length) {
+      typeSpeed = 2000;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      typeSpeed = 500;
+    }
+    
+    setTimeout(typeEffect, typeSpeed);
+  }
+  
+  typeEffect();
+</script>

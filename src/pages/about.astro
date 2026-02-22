@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const timeline = [
+  {
+    year: '2025-2026',
+    title: 'Desarrollador Web en Arreglos Azucena',
+    description: 'Desarrollo backend con PHP, funcionalidades CRUD, gestión de MySQL, integración frontend y despliegue en producción.',
+  },
+  {
+    year: '2025',
+    title: 'Desarrollador Frontend en Timtul',
+    description: 'Desarrollo de interfaces web modernas con HTML5, CSS3, JavaScript y LESS CSS. Diseño responsivo y accesibilidad.',
+  },
+  {
+    year: '2025',
+    title: 'Grado Superior DAW',
+    description: 'Desarrollo de Aplicaciones Web en Jesuïtes Bellvitge, Barcelona.',
+  },
+];
+
+const techStack = [
+  { category: 'Backend', items: ['PHP', 'Laravel', 'MySQL', 'APIs REST', 'MVC', 'CRUD'] },
+  { category: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'LESS'] },
+  { category: 'Herramientas', items: ['Git', 'GitHub', 'VS Code', 'Postman'] },
+  { category: 'Idiomas', items: ['Español (Nativo)', 'Inglés (Intermedio)', 'Catalán (Alto)'] },
+];
+---
+
+<Layout title="Sobre mí" description="Conoce más sobre Daniel Becerra, desarrollador backend especializado en PHP y Laravel">
+  <Header />
+  
+  <main class="pt-28 pb-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Hero -->
+      <section class="mb-20">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          Sobre <span class="gradient-text">mí</span>
+        </h1>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
+              Desarrollador backend junior con experiencia en proyectos reales. 
+              Trabajo con <span class="text-cyan-400 font-medium">PHP, Laravel y MySQL</span> 
+              en el desarrollo de aplicaciones web, APIs y funcionalidades CRUD.
+            </p>
+            <p class="text-slate-400 leading-relaxed mb-6">
+              Busco seguir creciendo profesionalmente como backend developer. 
+              Me apasiona el código limpio, las buenas prácticas y el aprendizaje continuo.
+            </p>
+            <p class="text-slate-400 leading-relaxed">
+              Aunque mi enfoque principal es el backend, tengo conocimientos sólidos de frontend 
+              que me permiten colaborar efectivamente con equipos multidisciplinarios y entender 
+              el ciclo completo del desarrollo web.
+            </p>
+          </div>
+          <div class="glass rounded-2xl p-8">
+            <div class="grid grid-cols-2 gap-6 text-center">
+              <div>
+                <span class="text-4xl font-bold gradient-text">1+</span>
+                <p class="text-slate-400 mt-2">Años de experiencia</p>
+              </div>
+              <div>
+                <span class="text-4xl font-bold gradient-text">5+</span>
+                <p class="text-slate-400 mt-2">Proyectos</p>
+              </div>
+              <div>
+                <span class="text-4xl font-bold gradient-text">PHP</span>
+                <p class="text-slate-400 mt-2">Especialización</p>
+              </div>
+              <div>
+                <span class="text-4xl font-bold gradient-text">100%</span>
+                <p class="text-slate-400 mt-2">Compromiso</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section class="mb-20">
+        <h2 class="text-3xl font-bold mb-12">
+          <span class="gradient-text">Stack Tecnológico</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          {techStack.map((stack) => (
+            <div class="glass rounded-xl p-6">
+              <h3 class="text-xl font-bold text-white mb-4">{stack.category}</h3>
+              <div class="flex flex-wrap gap-2">
+                {stack.items.map((item) => (
+                  <span class="px-3 py-1 bg-slate-700 text-slate-300 text-sm rounded-full">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Timeline -->
+      <section>
+        <h2 class="text-3xl font-bold mb-12">
+          <span class="gradient-text">Trayectoria</span>
+        </h2>
+        <div class="relative">
+          <div class="absolute left-0 md:left-1/2 w-px h-full bg-gradient-to-b from-blue-500 to-cyan-500"></div>
+          <div class="space-y-12">
+            {timeline.map((item, index) => (
+              <div class={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                <div class="md:w-1/2"></div>
+                <div class="absolute left-0 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-cyan-400 rounded-full border-4 border-slate-900"></div>
+                <div class="md:w-1/2 pl-8 md:pl-0">
+                  <div class="glass rounded-xl p-6">
+                    <span class="text-cyan-400 font-bold">{item.year}</span>
+                    <h3 class="text-xl font-bold text-white mt-2">{item.title}</h3>
+                    <p class="text-slate-400 mt-2">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+---
+
+<Layout title="Blog" description="Artículos sobre desarrollo backend, PHP, Laravel y arquitectura de software">
+  <Header />
+  
+  <main class="pt-28 pb-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        <span class="gradient-text">Blog</span>
+      </h1>
+      <p class="text-lg text-slate-400 mb-12 max-w-2xl">
+        Escribo sobre desarrollo backend, PHP, Laravel, arquitectura de software y las mejores prácticas que voy aprendiendo.
+      </p>
+
+      <!-- Posts Grid -->
+      <div class="grid md:grid-cols-2 gap-8">
+        {posts.map((post) => (
+          <article class="glass rounded-xl overflow-hidden card-hover group">
+            <div class="h-32 bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+              <svg class="w-12 h-12 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div class="p-6">
+              <time class="text-cyan-400 text-sm font-medium">
+                {formatDate(post.data.pubDate)}
+              </time>
+              <h2 class="text-xl font-bold text-white mt-2 mb-3 group-hover:text-cyan-400 transition-colors">
+                <a href={`/blog/${post.slug}`}>
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                {post.data.description}
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {post.data.tags.map((tag) => (
+                  <span class="px-2 py-1 bg-slate-700 text-slate-300 text-xs rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a 
+                href={`/blog/${post.slug}`}
+                class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium"
+              >
+                Leer más
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {posts.length === 0 && (
+        <div class="text-center py-20">
+          <p class="text-slate-400 text-lg">No hay artículos publicados todavía.</p>
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
